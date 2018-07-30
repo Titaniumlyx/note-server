@@ -34,4 +34,18 @@ router.post('/entry',(req, res) => {
     })
 });
 
+router.delete('/logout',(req,res) => {
+    req.session.destroy(function (err) {
+        if(err){
+            console.log(err);
+        }else{
+            res.clearCookie('sid');
+            res.json({
+                code: 200,
+                msg: '退出登录成功'
+            })
+        }
+    })
+});
+
 module.exports = router;
