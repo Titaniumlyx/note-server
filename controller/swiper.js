@@ -17,7 +17,7 @@ router.post('/swiper',(req,res) => {
     })
 });
 
-router.get('/getswiper',(req,res) => {
+router.get('/getSwiper',(req,res) => {
     swiper.find().then(data => {
         res.json({
             code: 200,
