@@ -43,5 +43,15 @@ router.get('/getArticle',(req,res) => {
     })
 });
 
+router.post('/getArticle/:id', (req,res) => {
+    let {id} = req.params;
+    article.findOne({_id: id}).then(data => {
+        res.json({
+            code: 200,
+            data,
+            msg: 'success'
+        })
+    })
+});
 
 module.exports = router;

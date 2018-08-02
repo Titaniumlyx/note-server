@@ -7,13 +7,14 @@ const article = new Schema({
         type: String,
         index: 1
     },
+    // id: String,
     content: String,
     contentText: String,
     authorMsgId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }
-},{versionKey: false, timestamps: {createAt: "createTime", updateAt: "updateTime"}});
+},{versionKey: false, timestamps: {createdAt: "createTime", updatedAt: "updateTime"}});
 
 module.exports = mongoose.model("article",article);
 // 导出这个模型
