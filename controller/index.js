@@ -5,6 +5,7 @@ const register = require('./register');
 const login = require('./login');
 const swiper = require('./swiper');
 const article = require('./article');
+const upload = require('./upload');
 
 const path = require('path');
 
@@ -16,5 +17,6 @@ router.use(register);
 router.use(login);
 router.use(swiper);
 router.use(article);
+router.use(upload);
 
 module.exports = router;

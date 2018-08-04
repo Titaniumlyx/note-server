@@ -14,6 +14,7 @@ router.post('/entry',(req, res) => {
                 let userMsg = {};
                 userMsg.username = data.username;
                 userMsg.email = data.email;  //只给前端需要的信息，不能全给，不能给密码
+                userMsg.avatar = data.avatar;
                 res.json({
                     code: 200,
                     data: userMsg,

@@ -10,7 +10,8 @@ const article = new Schema({
     // id: String,
     content: String,
     contentText: String,
-    authorMsgId: {
+    userPic: String,
+    authorMsg: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }

@@ -7,9 +7,10 @@ router.post('/article', (req,res) => {
         console.log(req.session.user);
         let {title,content,contentText} = req.body;
         let author = req.session.user.username;
-        let authorMsgId = req.session.user._id;
+        let authorMsg = req.session.user._id;
+        let userPic = req.session.user.avatar;
 
-        article.create({author,title,content,contentText,authorMsgId}).then(data => {
+        article.create({author,title,content,contentText,authorMsg,userPic}).then(data => {
             res.json({
                 code: 200,
                 msg: "文章发布成功"

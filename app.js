@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploadPic')));  //设置一个文件存储的绝对路径,静态目录
 
 app.use(session({  //这是将session 保存在内存当中   每个人分配一个session  但是访问量过多，内存肯定是扛不住的，所以必须做 ‘持久化处理’(用connect-mongo 插件)
     secret: 'LC',   //签名秘钥  加密的过程中需要  可以自己定
