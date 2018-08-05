@@ -11,6 +11,7 @@ const article = new Schema({
     content: String,
     contentText: String,
     userPic: String,
+    browse: Number,
     authorMsg: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'

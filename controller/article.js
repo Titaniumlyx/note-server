@@ -7,8 +7,9 @@ router.post('/article', (req,res) => {
         // console.log(req.session.user);
         let {title,content,contentText,author,userPic} = req.body;
         let authorMsg = req.session.user._id;
+        let browse = 0;
 
-        article.create({author,title,content,contentText,authorMsg,userPic}).then(data => {
+        article.create({author,title,content,contentText,authorMsg,userPic,browse}).then(data => {
             res.json({
                 code: 200,
                 msg: "文章发布成功"
@@ -47,6 +48,9 @@ router.get('/getArticle',(req,res) => {
 router.post('/getArticle/:id', (req,res) => {
     let {id} = req.params;
     article.findOne({_id: id}).then(data => {
+        // console.log(data);
+        let browse = data.browse+1;
+        article.update({_id: id},{$set: {browse}}).then(data => {})
         res.json({
             code: 200,
             data,
