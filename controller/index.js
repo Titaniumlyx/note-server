@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 });
 
 router.use(register);
-router.use(login);
+router.use(login)  ;
 router.use(swiper);
 router.use(article);
 router.use(upload);
