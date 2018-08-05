@@ -16,6 +16,6 @@ const article = new Schema({
         ref: 'user'
     }
 },{versionKey: false, timestamps: {createdAt: "createTime", updatedAt: "updateTime"}});
-
+   // timestamps 为时间戳
 module.exports = mongoose.model("article",article);
 // 导出这个模型

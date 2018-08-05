@@ -4,11 +4,9 @@ const article = require('../database/model/article');
 // 增加文章
 router.post('/article', (req,res) => {
     if(req.session.user){
-        console.log(req.session.user);
+        // console.log(req.session.user);
         let {title,content,contentText,author,userPic} = req.body;
-        // let author = req.session.user.username;
         let authorMsg = req.session.user._id;
-        // let userPic = req.session.user.avatar;
 
         article.create({author,title,content,contentText,authorMsg,userPic}).then(data => {
             res.json({

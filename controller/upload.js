@@ -37,7 +37,7 @@ router.post('/update', (req, res) => {
     // console.log(req.body.avatar);
     let {avatar, email} = req.body;
     user.findOneAndUpdate({email: email}, {$set: {avatar}}).then(data => {
-        // console.log(req.body.avatar);
+        // console.log(req.body.avatar);   //更新头像只更新进了数据库，用到头像的地方不能进行同步更新，需再做修改
         console.log(data);
         res.json({
             code: 200,

@@ -6,12 +6,13 @@ const login = require('./login');
 const swiper = require('./swiper');
 const article = require('./article');
 const upload = require('./upload');
+// 与下边的use要按 顺序 来，  需顺序一致
 
 const path = require('path');
 
 router.get('/', function(req, res) {
     res.sendFile(path.resolve(__dirname, '../pages/index.html'));
-});
+});  //前端打包后，需进行的修改
 
 router.use(register);
 router.use(login)  ;
