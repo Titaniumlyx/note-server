@@ -48,18 +48,18 @@ router.delete('/logout',(req,res) => {
         }
     })
 });
-
-router.post('/judge',(req,res) => {
-    if(req.session.user){
-        res.json({
-            code: 200
-        })
-    }else{
-        res.json({
-            code: 400,
-            msg: '请先登录...'
-        })
-    }
-});
+// 判断登录的接口    可不写，可在前端判断，用cookies 判断，，更精准一些
+// router.post('/judge',(req,res) => {
+//     if(req.session.user){
+//         res.json({
+//             code: 200
+//         })
+//     }else{
+//         res.json({
+//             code: 400,
+//             msg: '请先登录...'
+//         })
+//     }
+// });
 
 module.exports = router;
