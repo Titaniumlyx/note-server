@@ -12,6 +12,7 @@ const article = new Schema({
     contentText: String,
     userPic: String,
     browse: Number,
+    classify: Array,
     authorMsg: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'

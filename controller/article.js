@@ -5,11 +5,11 @@ const article = require('../database/model/article');
 router.post('/article', (req,res) => {
     if(req.session.user){
         // console.log(req.session.user);
-        let {title,content,contentText,author,userPic} = req.body;
+        let {title,content,contentText,author,userPic,classify} = req.body;
         let authorMsg = req.session.user._id;
         let browse = 0;
 
-        article.create({author,title,content,contentText,authorMsg,userPic,browse}).then(data => {
+        article.create({author,title,content,contentText,authorMsg,userPic,browse,classify}).then(data => {
             res.json({
                 code: 200,
                 msg: "文章发布成功"
