@@ -1,12 +1,13 @@
 const {Router} = require ("express");
 const router = Router();
 const comments = require('../database/model/comment');
+const article = require('../database/model/article');
 // 添加评论
 router.post('/addComment',(req,res) => {
     let {username,comment,recId,sendId} = req.body;
     console.log(req.session.user);
-    // let sendId = req.session.user._id;
     comments.create({comment,username,sendId,recId}).then(data => {
+        article.update({_id: recId}, {$push : {commentsId: data._id}}).then(data => {})
         res.json({
             code: 200,
             msg: "发表评论成功"
@@ -18,7 +19,7 @@ router.post('/addComment',(req,res) => {
         })
     })
 });
-// 得到评论
+// 得到某篇笔记的评论
 router.post('/getComment/:id',(req,res) => {
     let {id} = req.params;
     comments.find({recId: id}).then(data => {

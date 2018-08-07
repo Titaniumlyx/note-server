@@ -30,6 +30,7 @@ router.post('/article', (req,res) => {
 // 得到文章列表
 router.get('/getArticle',(req,res) => {
     article.find()
+        .populate({path: 'commentsId'})
         .sort({_id: -1})
         .then(data => {
         res.json({
