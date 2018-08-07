@@ -44,7 +44,7 @@ router.get('/getArticle',(req,res) => {
         })
     })
 });
-// 进入文章详情
+// 进入文章详情    5b670cb51c109a15f00ede27
 router.post('/getArticle/:id', (req,res) => {
     let {id} = req.params;
     article.findOne({_id: id}).then(data => {

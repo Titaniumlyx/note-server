@@ -6,6 +6,7 @@ const login = require('./login');
 const swiper = require('./swiper');
 const article = require('./article');
 const upload = require('./upload');
+const comment = require('./comment');
 // 与下边的use要按 顺序 来，  需顺序一致
 
 const path = require('path');
@@ -19,5 +20,6 @@ router.use(login)  ;
 router.use(swiper);
 router.use(article);
 router.use(upload);
+router.use(comment);
 
 module.exports = router;
